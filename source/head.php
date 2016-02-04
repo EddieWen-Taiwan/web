@@ -16,7 +16,7 @@
 	<meta property="og:site_name" content="網站標題" />
 	<meta property="og:title" content="小標題(吧" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="網站URL"  />
+	<meta property="og:url" content="網站URL" />
 	<meta property="og:image" content="網站縮圖" />
 	<meta property="og:description" content="網站描述" />
 
