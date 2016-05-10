@@ -9,6 +9,7 @@
     "style-loader": "^0.13.1"
   },
   "scripts": {
-    "dev": "webpack-dev-server --devtool eval --process --colors --content-base build/"
+    "dev": "webpack-dev-server --devtool eval --process --colors --content-base build/",
+    "build": "webpack -p --config webpack.config.build.js"
   }
 }
