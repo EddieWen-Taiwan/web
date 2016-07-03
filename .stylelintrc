@@ -1,6 +1,6 @@
 {
 	"extends": "stylelint-config-standard",
-	"ignoreFiles": ["src/css/animate.css", "src/css/font-awesome.css"],
+	"ignoreFiles": [],
 	"rules": {
 		"color-hex-case": "upper",
 		"comment-whitespace-inside": null,
