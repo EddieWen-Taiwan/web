@@ -29,8 +29,9 @@ body {
 	margin: 0px;
 	padding: 0px;
 	font-size: 14px;
-	color: #000000;
+	color: #000;
 	font-family: "Open Sans";
+
 	/*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif, "LiHei Pro", "Microsoft JhengHei";*/
 }
 
@@ -58,9 +59,9 @@ body {
 	display: flex;
 
 	-webkit-align-items: center;
-	   -moz-align-items: center;
-		-ms-align-items: center;
-			align-items: center;
+	-moz-align-items: center;
+	-ms-align-items: center;
+	align-items: center;
 }
 
 .center {

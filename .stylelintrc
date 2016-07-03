@@ -1,0 +1,15 @@
+{
+	"extends": "stylelint-config-standard",
+	"ignoreFiles": ["src/css/animate.css", "src/css/font-awesome.css"],
+	"rules": {
+		"color-hex-case": "upper",
+		"comment-whitespace-inside": null,
+		"function-parentheses-space-inside": null,
+		"indentation": "tab",
+		"length-zero-no-unit": null,
+		"max-empty-lines": null,
+		"media-query-parentheses-space-inside": "always",
+		"number-leading-zero": "never",
+		"selector-list-comma-newline-after": "always-multi-line",
+	}
+}

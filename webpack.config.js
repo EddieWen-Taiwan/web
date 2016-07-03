@@ -1,4 +1,5 @@
 const path = require('path');
+const styleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
 	entry: path.resolve(__dirname, 'src', 'app.js'),
@@ -8,6 +9,9 @@ module.exports = {
 		filename: 'bundle.min.js'
 	},
 	module: {
+		preLoaders: [
+			{ test: /\.js$/, include: /src/, loader: 'eslint-loader' }
+		],
 		loaders: [
 			{ test: /\.js$/, include: /src/, loader: 'babel-loader' },
 			{ test: /\.css$/, loader: 'style-loader!css-loader' },
@@ -18,6 +22,13 @@ module.exports = {
 		root: path.resolve(__dirname, 'src'),
 		extensions: ['', '.js', '.css'],
 		alias: {}
+	},
+	plugins: [
+		new styleLintPlugin({
+			files: 'src/css/**/*.css'
+		})
+	],
+	eslint: {
+		configFile: '.eslintrc'
 	}
 }
-
