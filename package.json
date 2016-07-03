@@ -23,6 +23,6 @@
     "stylelint": "stylelint src/css/*.css src/css/**/*.css",
     "eslint": "eslint src",
     "lint": "eslint && stylelint",
-    "iWannaCleanGit": "rm -rf .git && git init"
+    "cleanGitPlz": "cp -r .git ._git && rm -rf .git && git init"
   }
 }
