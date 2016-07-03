@@ -1,0 +1,17 @@
+{
+	"extends": "airbnb",
+	"env": {
+		"browser": true,
+		"es6": true
+	},
+	"rules": {
+		"comma-dangle": [2, "always-multiline"],
+		"indent": [2, "tab", { "SwitchCase": 1 }],
+		"keyword-spacing": ["error", { "after": false, "overrides": {
+			"from": { "after": true }
+		} }],
+		"padded-blocks": [2, { "blocks": "always", "switches": "never" }],
+		"space-in-parens": [0, "never"],
+		"import/no-unresolved": [0]
+	}
+}
