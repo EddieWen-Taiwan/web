@@ -1,4 +1,27 @@
 {
+  "name": "web-starter",
+  "version": "1.0.0",
+  "description": "Eddie's web starter kit",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --devtool eval --process --colors --content-base build/",
+    "build": "webpack -p --config webpack.config.build.js",
+    "stylelint": "stylelint src/css/*.css src/css/**/*.css",
+    "eslint": "eslint src",
+    "lint": "eslint && stylelint",
+    "cleanGitPlz": "cp -r .git ._git && rm -rf .git && git init"
+  },
+  "keywords": [
+    "web",
+    "starter"
+  ],
+  "author": "Eddie Wen <m20021991y@gmail.com> (http://eddiewen.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EddieWen-Taiwan/web/issues"
+  },
+  "homepage": "https://github.com/EddieWen-Taiwan/web#readme",
   "dependencies": {},
   "devDependencies": {
     "babel-loader": "^6.2.4",
@@ -16,13 +39,5 @@
     "stylelint-config-standard": "^10.0.0",
     "stylelint-webpack-plugin": "^0.2.0",
     "webpack": "^1.13.0"
-  },
-  "scripts": {
-    "dev": "webpack-dev-server --devtool eval --process --colors --content-base build/",
-    "build": "webpack -p --config webpack.config.build.js",
-    "stylelint": "stylelint src/css/*.css src/css/**/*.css",
-    "eslint": "eslint src",
-    "lint": "eslint && stylelint",
-    "cleanGitPlz": "cp -r .git ._git && rm -rf .git && git init"
   }
 }
