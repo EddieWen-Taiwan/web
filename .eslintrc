@@ -5,10 +5,13 @@
 		"es6": true
 	},
 	"rules": {
+		"brace-style": ["error", "stroustrup", { "allowSingleLine": true }],
 		"comma-dangle": [2, "always-multiline"],
 		"indent": [2, "tab", { "SwitchCase": 1 }],
 		"keyword-spacing": ["error", { "after": false, "overrides": {
-			"from": { "after": true }
+			"from": { "after": true },
+			"else": { "after": true },
+			"import": { "after": true }
 		} }],
 		"padded-blocks": [2, { "blocks": "always", "switches": "never" }],
 		"space-in-parens": [0, "never"],
