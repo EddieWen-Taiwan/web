@@ -37,6 +37,10 @@ app.get('/', function(req, res) {
 	res.send('Hello, Express.js!');
 });
 
+app.get('/demo', function(req, res) {
+	res.render('demo')
+});
+
 const port = 8080;
 
 app.listen( port, function() {
