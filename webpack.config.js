@@ -16,7 +16,7 @@ module.exports = {
 			{ test: /\.js$/, include: /src/, loader: 'eslint-loader' },
 		],
 		loaders: [
-			{ test: /\.js$/, include: /src/, loader: 'babel-loader' },
+			{ test: /\.js$/, include: /src/, loaders: [ 'babel-loader', 'webpack-module-hot-accept' ] },
 			{ test: /\.css$/, loader: 'style-loader!css-loader' },
 			{ test: /\.(png|jpg)$/, loader: 'file-loader', query: 'name=img/[hash:7].[ext]' },
 			{ test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/, loader : 'file-loader', query: 'name=fonts/[hash:9].[ext]' },
