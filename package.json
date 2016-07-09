@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node server.js",
     "prebuild": "pug src/views/*.pug --out build",
-    "build": "webpack -p --config webpack.build.config.js",
-    "styleLint": "stylelint src/css/*.css src/css/**/*.css",
+    "build": "webpack --config webpack.build.config.js",
+    "stylelint": "stylelint src/css/*.css src/css/**/*.css",
     "eslint": "eslint src",
     "lint": "npm run eslint && npm run stylelint",
     "cleanGitPlz": "cp -r .git ._git && rm -rf .git && git init"
