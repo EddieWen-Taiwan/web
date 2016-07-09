@@ -2,12 +2,12 @@
 
 ## Installation
 
-~~~
-git clone https://github.com/EddieWen-Taiwan/web.git
-cd web
-npm install
+~~~bash
+$ git clone https://github.com/EddieWen-Taiwan/web.git
+$ cd web
+$ npm install
 
-npm run dev
+$ npm run dev
 ~~~
 
 ## Note
