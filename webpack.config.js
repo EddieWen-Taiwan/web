@@ -2,11 +2,13 @@ const path = require('path');
 const webpack = require('webpack');
 const styleLintPlugin = require('stylelint-webpack-plugin');
 
+const hotMiddleware = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000';
+
 module.exports = {
-	entry: [ path.resolve(__dirname, 'src', 'app.js'), 'webpack-dev-server/client?http://localhost:8080/', "webpack/hot/dev-server" ],
+	entry: [ hotMiddleware, path.resolve(__dirname, 'src', 'app.js') ],
 	output: {
 		path: path.resolve(__dirname, 'build', 'assets'),
-		publicPath: 'http://localhost:8080/assets/',
+		publicPath: '/assets/',
 		filename: 'bundle.min.js'
 	},
 	module: {
@@ -27,6 +29,7 @@ module.exports = {
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
+		new webpack.NoErrorsPlugin(),
 		new styleLintPlugin({
 			files: 'src/css/**/*.css'
 		}),
