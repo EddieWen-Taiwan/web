@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node server.js",
+    "prebuild": "pug src/views/*.pug --out build",
     "build": "webpack -p --config webpack.build.config.js",
     "styleLint": "stylelint src/css/*.css src/css/**/*.css",
     "eslint": "eslint src",
@@ -37,6 +38,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "pug": "^2.0.0-beta3",
+    "pug-cli": "^1.0.0-alpha6",
     "style-loader": "^0.13.1",
     "stylelint-config-standard": "^10.0.0",
     "stylelint-webpack-plugin": "^0.2.0",
