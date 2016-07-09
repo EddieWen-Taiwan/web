@@ -1,6 +1,6 @@
 {
 	"extends": "stylelint-config-standard",
-	"ignoreFiles": ["src/css/lib/*", "src/css/common/font-awesome.css"],
+	"ignoreFiles": [],
 	"rules": {
 		"color-hex-case": "upper",
 		"comment-empty-line-before": [ "always", {

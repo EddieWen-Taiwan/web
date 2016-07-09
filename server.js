@@ -1,25 +1,48 @@
+/**
+ * Include webpack....
+ */
 const webpack = require('webpack');
-const WebpackDevServer = require('webpack-dev-server');
+const WebpackDevMiddleware = require('webpack-dev-middleware');
+const WebpackHotMiddleware = require('webpack-hot-middleware');
+
 const config = require('./webpack.config');
+const compiler = webpack(config);
 
-const server = new WebpackDevServer( webpack(config), {
-	contentBase: './build',
+/**
+ * node.js framework - `Express.js`
+ * next: `Koa`
+ */
+const express = require('express');
+const app = express();
+/**
+ * View Engine: Pug(Jade)
+ */
+app.set( 'view engine', 'pug' );
+app.set( 'views', './src/views' );
+app.use( express.static('./build') );
+app.use( WebpackDevMiddleware(compiler, {
 	publicPath: config.output.publicPath,
-	hot: true,
-	// noInfo: true,
+	noInfo: true,
+	// stats: { colors: true },
+}) );
+app.use( WebpackHotMiddleware(compiler, {
+	log: console.log,
+	path: '/__webpack_hmr',
+}) );
 
-	stats: { colors: true }
+/**
+ * Express routing
+ */
+app.get('/', function(req, res) {
+	res.send('Hello, Express.js!');
 });
 
-const ip = 'localhost';
+app.get('/demo', function(req, res) {
+	res.render('demo')
+});
+
 const port = 8080;
 
-server.listen( port, ip, function(err) {
-
-	if( err ) {
-		return console.log(err);
-	}
-
-	console.log('Listening at http://' + ip + ':' + port);
-
+app.listen( port, function() {
+	console.log(`Example app listening on port http://localhost:${port}!`);
 });
