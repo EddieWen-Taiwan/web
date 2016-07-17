@@ -1,49 +1,48 @@
 const ip = require('ip');
-/**
- * Include webpack....
- */
 const webpack = require('webpack');
-const WebpackDevMiddleware = require('webpack-dev-middleware');
-const WebpackHotMiddleware = require('webpack-hot-middleware');
+const WebpackDevMiddleware = require('koa-webpack-dev-middleware');
+const WebpackHotMiddleware = require('koa-webpack-hot-middleware');
+const config = require('./webpack.config.js');
+const Koa = require('koa');
+const Router = require('koa-router');
+const Pug = require('koa-pug');
 
-const config = require('./webpack.config');
+/**
+ * Settings
+ */
+const port = 8080;
+const app = new Koa();
+const router = new Router();
+router.get( '/', (ctx, next) => {
+	ctx.body = 'Hello, Koa@2';
+}).get( '/demo', (ctx, next) => {
+	ctx.render('demo');
+});
+const pug = new Pug({
+	viewPath: './src/views',
+	debug: false,
+	pretty: false,
+	app: app,
+});
+
 const compiler = webpack(config);
-
-/**
- * node.js framework - `Express.js`
- * next: `Koa`
- */
-const express = require('express');
-const app = express();
-/**
- * View Engine: Pug(Jade)
- */
-app.set( 'view engine', 'pug' );
-app.set( 'views', './src/views' );
-app.use( express.static('./build') );
-app.use( WebpackDevMiddleware(compiler, {
+const webpackDevMiddleware = new WebpackDevMiddleware(compiler, {
 	publicPath: config.output.publicPath,
 	noInfo: true,
 	// stats: { colors: true },
-}) );
-app.use( WebpackHotMiddleware(compiler, {
+});
+const webpackHotMiddleware = new WebpackHotMiddleware(compiler, {
 	log: console.log,
 	path: '/__webpack_hmr',
-}) );
+});
+
+app.use( router.routes() );
+app.use( webpackDevMiddleware );
+app.use( webpackHotMiddleware );
 
 /**
- * Express routing
+ * Server Go~
  */
-app.get('/', function(req, res) {
-	res.send('Hello, Express.js!');
-});
-
-app.get('/demo', function(req, res) {
-	res.render('demo')
-});
-
-const port = 8080;
-
 app.listen( port, function() {
 	console.log(`Example app listening on port ${port}`);
 	console.log(`Public visit from             http://${ip.address()}:${port}\n`);
