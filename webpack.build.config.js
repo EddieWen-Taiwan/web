@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpakcPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	entry: path.resolve(__dirname, 'src', 'app.js'),
@@ -11,16 +12,33 @@ module.exports = {
 	},
 	module: {
 		loaders: [
-			{ test: /\.js$/, include: /src/, loader: 'babel-loader' },
-			{ test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader') },
-			{ test: /\.(png|jpg)$/, loader: 'file-loader', query: 'name=img/[hash:7].[ext]' },
-			{ test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/, loader : 'file-loader', query: 'name=fonts/[hash:9].[ext]' },
+			{
+				test: /\.pug$/,
+				include: /src\/views/,
+				loader: 'pug-loader',
+			}, {
+				test: /\.js$/,
+				include: /src/,
+				loader: 'babel-loader',
+			}, {
+				test: /\.css$/,
+				include: /src\/css/,
+				loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
+			}, {
+				test: /\.(png|jpg)$/,
+				loader: 'file-loader',
+				query: 'name=img/[hash:7].[ext]',
+			}, {
+				test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+				loader: 'file-loader',
+				query: 'name=fonts/[hash:9].[ext]',
+			},
 		]
 	},
 	resolve: {
 		root: path.resolve(__dirname, 'src'),
 		extensions: ['', '.js', '.css'],
-		alias: {}
+		alias: {},
 	},
 	plugins: [
 		new webpack.optimize.UglifyJsPlugin({
@@ -29,6 +47,21 @@ module.exports = {
 			}
 		}),
 		new ExtractTextPlugin('all.min.css'),
+		new HtmlWebpakcPlugin({
+			template: 'src/views/demo.pug',
+			inject: false,
+			filename: '../demo.html',
+			minify: {
+				collapseBooleanAttributes: true,
+				collapseWhitespace: true,
+				minifyCSS: true,
+				minifyJS: true,
+				quoteCharacter: '\'',
+				removeEmptyAttributes: true,
+				removeScriptTypeAttributes: true,
+				removeStyleLinkTypeAttributes: true,
+			},
+		}),
 	],
 	devtool: 'source-map',
 }
