@@ -17,6 +17,5 @@ $ npm run dev
 * middleware: `koa-webpack-dev-middleware` + `koa-webpack-hot-middleware` + `webpack-module-hot-accept`  
 
 * view engine: `pug`  
-> But `pug-loader` is not yet ready, so it uses npm script - `prebuild` to compile .pug to .html.
 
 * linter: `eslint` + `stylelint`
