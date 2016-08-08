@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpakcPlugin = require('html-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
 	entry: path.resolve(__dirname, 'src', 'app.js'),
@@ -26,10 +27,12 @@ module.exports = {
 				loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
 			}, {
 				test: /\.(png|jpg)$/,
+				include: /src/,
 				loader: 'file-loader',
 				query: 'name=img/[hash:7].[ext]',
 			}, {
 				test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+				include: /src/,
 				loader: 'file-loader',
 				query: 'name=fonts/[hash:9].[ext]',
 			},
@@ -43,8 +46,8 @@ module.exports = {
 	plugins: [
 		new webpack.optimize.UglifyJsPlugin({
 			compress: {
-				warnings: false
-			}
+				warnings: false,
+			},
 		}),
 		new ExtractTextPlugin('all.min.css'),
 		new HtmlWebpakcPlugin({
@@ -61,6 +64,9 @@ module.exports = {
 				removeScriptTypeAttributes: true,
 				removeStyleLinkTypeAttributes: true,
 			},
+		}),
+		new OptimizeCssAssetsPlugin({
+			assetNameRegExp: /\.min\.css$/,
 		}),
 	],
 	devtool: 'source-map',
