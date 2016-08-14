@@ -71,7 +71,9 @@ module.exports = {
 	],
 	postcss: (webpack) => {
 		return [
-			require('precss')(),
+			require('precss')({
+				variables: require('./src/css/palette'),
+			}),
 			require("postcss-cssnext")(),
 		]
 	},
