@@ -7,6 +7,7 @@ const config = require('./webpack.config.js');
 
 const Koa = require('koa');
 const Pug = require('koa-pug');
+const serve = require('koa-static');
 
 /**
  * Settings
@@ -36,6 +37,8 @@ app.use( webpackHotMiddleware );
 
 const router = require('./devRouter.js')();
 app.use( router.routes() );
+
+app.use( serve('build') );
 
 /**
  * Server Go~
