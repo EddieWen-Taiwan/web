@@ -24,7 +24,7 @@ module.exports = {
 			}, {
 				test: /\.css$/,
 				include: /src\/css/,
-				loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
+				loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader'),
 			}, {
 				test: /\.(png|jpg)$/,
 				include: /src/,
@@ -69,5 +69,13 @@ module.exports = {
 			assetNameRegExp: /\.min\.css$/,
 		}),
 	],
+	postcss: (webpack) => {
+		return [
+			require('precss')({
+				variables: require('./src/css/palette'),
+			}),
+			require("postcss-cssnext")(),
+		]
+	},
 	devtool: 'source-map',
 }
