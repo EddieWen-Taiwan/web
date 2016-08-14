@@ -51,6 +51,9 @@ module.exports = {
 	],
 	postcss: (webpack) => {
 		return [
+			require('postcss-import')({
+				addDependencyTo: webpack,
+			}),
 			require('precss')({
 				variables: require('./src/css/palette'),
 			}),
