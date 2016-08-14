@@ -15,6 +15,7 @@
 		"media-query-parentheses-space-inside": "always",
 		"number-leading-zero": "never",
 		"selector-list-comma-newline-after": "always-multi-line",
-		"selector-pseudo-element-colon-notation": "single"
+		"selector-pseudo-element-colon-notation": "single",
+		"string-quotes": "single"
 	}
 }
