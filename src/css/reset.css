@@ -64,15 +64,12 @@ body {
 	outline: none !important;
 }
 
-/*::selection {
+/*
+::selection {
 	background: transparent;
 	color: #9E0360;
 }
-
-::-moz-selection {
-	background: transparent;
-	color: #9E0360;
-}*/
+*/
 
 h1 {
 	font-size: 44px;

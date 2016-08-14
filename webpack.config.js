@@ -23,7 +23,7 @@ module.exports = {
 			}, {
 				test: /\.css$/,
 				include: /src\/css/,
-				loader: 'style-loader!css-loader',
+				loader: 'style-loader!css-loader!postcss-loader',
 			}, {
 				test: /\.(png|jpg)$/,
 				include: /src/,
@@ -49,6 +49,12 @@ module.exports = {
 			files: 'src/css/**/*.css'
 		}),
 	],
+	postcss: (webpack) => {
+		return [
+			require('precss')(),
+			require('postcss-cssnext')(),
+		];
+	},
 	eslint: {
 		configFile: '.eslintrc',
 	},
