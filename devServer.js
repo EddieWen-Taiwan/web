@@ -19,6 +19,7 @@ const pug = new Pug({
 	viewPath: './src/views',
 	debug: false,
 	pretty: false,
+	noCache: true,
 	app: app,
 });
 
