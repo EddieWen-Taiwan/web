@@ -3,7 +3,7 @@ const ip = require('ip');
 const webpack = require('webpack');
 const WebpackDevMiddleware = require('koa-webpack-dev-middleware');
 const WebpackHotMiddleware = require('koa-webpack-hot-middleware');
-const config = require('./webpack.config.js');
+const config = require('./webpack.config.dev');
 
 const Koa = require('koa');
 const Pug = require('koa-pug');
@@ -36,7 +36,7 @@ const webpackHotMiddleware = new WebpackHotMiddleware(compiler, {
 app.use( webpackDevMiddleware );
 app.use( webpackHotMiddleware );
 
-const router = require('./devRouter.js')();
+const router = require('./devRouter')();
 app.use( router.routes() );
 
 app.use( serve('build') );

@@ -3,14 +3,11 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpakcPlugin = require('html-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const base = require('./webpack.config');
 
 module.exports = {
-	entry: path.resolve(__dirname, 'src', 'app.js'),
-	output: {
-		path: path.resolve(__dirname, 'build', 'assets'),
-		publicPath: '/assets/',
-		filename: 'bundle.min.js'
-	},
+	entry: base.entry,
+	output: base.output,
 	module: {
 		loaders: [
 			{
@@ -37,11 +34,6 @@ module.exports = {
 				query: 'name=fonts/[hash:9].[ext]',
 			},
 		]
-	},
-	resolve: {
-		root: path.resolve(__dirname, 'src'),
-		extensions: ['', '.js', '.css'],
-		alias: {},
 	},
 	plugins: [
 		new webpack.optimize.UglifyJsPlugin({
