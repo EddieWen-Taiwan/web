@@ -1,11 +1,13 @@
 const webpack = require('webpack');
 const styleLintPlugin = require('stylelint-webpack-plugin');
 const base = require('./webpack.config');
+const dev = require('./devConfig.json');
 
 module.exports = {
 	entry: [
-		'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
-		base.entry
+		`webpack-dev-server/client?http://localhost:${dev.port}`,
+		'webpack/hot/dev-server',
+		base.entry,
 	],
 	output: base.output,
 	module: {
@@ -29,6 +31,7 @@ module.exports = {
 				'src/css/**/*.css'
 			],
 		}),
+		base.plugins.htmlWebpakcPlugin,
 	],
 	eslint: {
 		configFile: '.eslintrc.json',
