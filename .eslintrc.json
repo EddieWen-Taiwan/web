@@ -15,7 +15,6 @@
 		} }],
 		"max-len": [2, 120],
 		"padded-blocks": [2, { "blocks": "always", "switches": "never" }],
-		"space-in-parens": [0, "never"],
-		"import/no-unresolved": [0]
+		"space-in-parens": [0, "never"]
 	}
 }
