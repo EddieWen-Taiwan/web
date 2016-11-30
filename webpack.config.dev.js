@@ -18,10 +18,15 @@ module.exports = {
 				loader: 'eslint-loader',
 			},
 		],
-		loaders: base.module.loaders.concat(base.module.cssLoader),
+		loaders: base.module.loaders.concat(
+			Object.assign(base.module.cssLoader, {
+				loader: `${base.module.cssLoader.loader.style}!${base.module.cssLoader.loader.css}`,
+			})
+		),
 	},
 	postcss: base.postcss,
 	plugins: [
+		base.plugins.htmlWebpakcPlugin,
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoErrorsPlugin(),
 		new styleLintPlugin({
@@ -31,7 +36,6 @@ module.exports = {
 				'src/css/**/*.css'
 			],
 		}),
-		base.plugins.htmlWebpakcPlugin,
 	],
 	eslint: {
 		configFile: '.eslintrc.json',

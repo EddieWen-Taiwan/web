@@ -10,9 +10,9 @@ const globalCss = require('./global.css.json');
 module.exports = {
 	entry: path.join(__dirname, 'src', 'app.js'),
 	output: {
-		path: path.join(__dirname, 'build'),
-		publicPath: '/',
-		filename: 'bundle__[hash:7].min.js'
+		path: path.join(__dirname, 'build', '[hash:7]'),
+		publicPath: '/[hash:7]',
+		filename: '[name].[hash:5].js'
 	},
 	module: {
 		loaders: [
@@ -26,7 +26,7 @@ module.exports = {
 				loader: 'url-loader?limit=10000&name=[name]__[hash:13].[ext]',
 			}, {
 				test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
-				loader : 'file-loader?name=[name]__[hash:7].[ext]',
+				loader : 'file-loader?name=[name]__[hash:5].[ext]',
 			}, {
 				test: /\.pug$/,
 				include: /src\/views/,
@@ -36,14 +36,17 @@ module.exports = {
 		cssLoader: {
 			test: /\.css$/,
 			include: /src\/css/,
-			loader: 'style-loader!css-loader!postcss-loader',
+			loader: {
+				style: 'style-loader',
+				css: 'css-loader!postcss-loader',
+			},
 		},
 	},
 	plugins: {
 		htmlWebpakcPlugin: new HtmlWebpakcPlugin({
 			template: 'src/views/demo.pug',
 			inject: 'body',
-			filename: 'demo.html',
+			filename: '../demo.html',
 			// favicon: 'src/images/favicon.png',
 			minify: {
 				collapseBooleanAttributes: true,
