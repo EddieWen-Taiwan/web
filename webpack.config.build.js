@@ -3,9 +3,14 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const base = require('./webpack.config');
 
+const folder = Math.floor((new Date()).valueOf() * Math.random()).toString().substr(-7);
+
 module.exports = {
 	entry: base.entry,
-	output: base.output,
+	output: Object.assign(base.output, {
+		path: path.join(base.output.path, folder),
+		publicPath: `${base.output.publicPath}${folder}/`,
+	}),
 	module: {
 		loaders: base.module.loaders.concat(
 			Object.assign(base.module.cssLoader, {

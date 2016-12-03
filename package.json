@@ -8,7 +8,7 @@
     "clean": "rm -rf build",
     "dev": "node devServer.js",
     "prebuild": "npm run clean",
-    "build": "webpack --config webpack.config.build.js",
+    "build": "NODE_ENV=production webpack --config webpack.config.build.js",
     "lint:css": "stylelint src/css/*.css src/css/**/*.css",
     "lint:js": "eslint src",
     "lint": "npm run lint:css && npm run lint:js"
@@ -44,6 +44,7 @@
     "postcss-extend": "^1.0.5",
     "postcss-loader": "^1.1.1",
     "postcss-mixins": "^5.4.0",
+    "postcss-nested": "^1.0.0",
     "postcss-scss": "^0.4.0",
     "pug": "^2.0.0-beta6",
     "pug-loader": "^2.3.0",
