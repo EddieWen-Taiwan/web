@@ -23,6 +23,10 @@ module.exports = {
 	},
 	plugins: [
 		base.plugins.htmlWebpakcPlugin,
+		new webpack.optimize.CommonsChunkPlugin({
+			name: 'bundle',
+			filename: '[name].[hash:5].js',
+		}),
 		new webpack.optimize.UglifyJsPlugin({
 			compress: {
 				warnings: false,
