@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const base = require('./webpack.config');
 
-const folder = Math.floor((new Date()).valueOf() * Math.random()).toString().substr(-7);
+const folder = require('./randomName');
 
 module.exports = {
 	entry: base.entry,
