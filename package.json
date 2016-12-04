@@ -56,6 +56,6 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
-    "fetch": "^1.1.0"
+    "whatwg-fetch": "^2.0.1"
   }
 }
