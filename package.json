@@ -4,7 +4,7 @@
   "description": "Eddie's web starter kit",
   "main": "src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --coverage",
     "clean": "rm -rf build",
     "dev": "node devServer.js",
     "prebuild": "npm run clean",
@@ -38,6 +38,7 @@
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.24.1",
     "ip": "^1.1.4",
+    "jest": "^17.0.3",
     "postcss": "^5.2.6",
     "postcss-cssnext": "^2.9.0",
     "postcss-custom-properties": "^5.0.1",
