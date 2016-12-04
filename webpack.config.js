@@ -4,7 +4,7 @@ const cssnext = require('postcss-cssnext');
 const customProperties = require('postcss-custom-properties');
 const mixins = require('postcss-mixins');
 const extend = require('postcss-extend');
-const nested = require('postcss-nested');
+const autoAndMark = require('./postcss-auto-and-mark');
 const HtmlWebpakcPlugin = require('html-webpack-plugin');
 const globalCss = require('./global.css.json');
 
@@ -66,7 +66,7 @@ module.exports = {
 		customProperties({
 			variables: globalCss,
 		}),
-		nested(),
+		autoAndMark(),
 		mixins(),
 		extend(),
 		cssnext(),

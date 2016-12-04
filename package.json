@@ -44,7 +44,6 @@
     "postcss-extend": "^1.0.5",
     "postcss-loader": "^1.1.1",
     "postcss-mixins": "^5.4.0",
-    "postcss-nested": "^1.0.0",
     "postcss-scss": "^0.4.0",
     "pug": "^2.0.0-beta6",
     "pug-loader": "^2.3.0",
