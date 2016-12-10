@@ -15,6 +15,7 @@
 			"import": { "after": true }
 		} }],
 		"max-len": [2, 120],
+		"no-param-reassign": [2, { "props": false }],
 		"no-tabs": [0],
 		"padded-blocks": [2, { "blocks": "always", "switches": "never" }],
 		"space-in-parens": [0, "never"]
