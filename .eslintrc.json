@@ -6,6 +6,7 @@
 		"jest": true
 	},
 	"rules": {
+		"arrow-parens": [2, "always"],
 		"brace-style": [2, "stroustrup", { "allowSingleLine": true }],
 		"comma-dangle": [2, "always-multiline"],
 		"indent": [2, "tab", { "SwitchCase": 1 }],
@@ -15,6 +16,7 @@
 			"import": { "after": true }
 		} }],
 		"max-len": [2, 120],
+		"no-confusing-arrow": 0,
 		"no-param-reassign": [2, { "props": false }],
 		"no-tabs": [0],
 		"padded-blocks": [2, { "blocks": "always", "switches": "never" }],
