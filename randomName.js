@@ -10,4 +10,4 @@ for( let i = 0; i < 7; i++ ) {
 	folder += all.substr(position, 1);
 }
 
-module.exports = folder;
+export default folder;

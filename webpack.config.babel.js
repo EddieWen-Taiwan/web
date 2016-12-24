@@ -1,14 +1,14 @@
-const path = require('path');
-const webpack = require('webpack');
-const cssnext = require('postcss-cssnext');
-const customProperties = require('postcss-custom-properties');
-const mixins = require('postcss-mixins');
-const extend = require('postcss-extend');
-const autoAndMark = require('./postcss-auto-and-mark');
-const HtmlWebpakcPlugin = require('html-webpack-plugin');
-const globalCss = require('./global.css.json');
+import path from 'path';
+import webpack from 'webpack';
+import cssnext from 'postcss-cssnext';
+import customProperties from 'postcss-custom-properties';
+import mixins from 'postcss-mixins';
+import extend from 'postcss-extend';
+import autoAndMark from './postcss-auto-and-mark';
+import HtmlWebpakcPlugin from 'html-webpack-plugin';
+import globalCss from './global.css.json';
 
-module.exports = {
+const webpackBaseConfig = {
 	entry: path.join(__dirname, 'src', 'app.js'),
 	output: {
 		path: path.join(__dirname, 'build'),
@@ -71,4 +71,6 @@ module.exports = {
 		extend(),
 		cssnext(),
 	],
-}
+};
+
+export default webpackBaseConfig;

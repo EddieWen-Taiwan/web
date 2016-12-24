@@ -1,9 +1,9 @@
-const webpack = require('webpack');
-const styleLintPlugin = require('stylelint-webpack-plugin');
-const base = require('./webpack.config');
-const dev = require('./devConfig.json');
+import webpack from 'webpack';
+import styleLintPlugin from 'stylelint-webpack-plugin';
+import base from './webpack.config.babel';
+import dev from './devConfig.json';
 
-module.exports = {
+const webpackDevConfig = {
 	entry: [
 		`webpack-dev-server/client?http://localhost:${dev.port}`,
 		'webpack/hot/dev-server',
@@ -41,4 +41,6 @@ module.exports = {
 		configFile: '.eslintrc.json',
 	},
 	devtool: 'eval',
-}
+};
+
+export default webpackDevConfig;

@@ -1,8 +1,8 @@
-const ip = require('ip');
-const webpack = require('webpack');
-const WebpackDevServer = require('webpack-dev-server');
-const config = require('./webpack.config.dev');
-const dev = require('./devConfig.json');
+import ip from 'ip';
+import webpack from 'webpack';
+import WebpackDevServer from 'webpack-dev-server';
+import config from './webpack.config.dev.babel';
+import dev from './devConfig.json';
 
 new WebpackDevServer(webpack(config), {
 	contentBase: config.output.path,

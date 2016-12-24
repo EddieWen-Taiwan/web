@@ -1,11 +1,11 @@
-const path = require('path');
-const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const base = require('./webpack.config');
+import path from 'path';
+import webpack from 'webpack';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import base from './webpack.config.babel';
 
-const folder = require('./randomName');
+import folder from './randomName';
 
-module.exports = {
+const webpackBuildConfig = {
 	entry: base.entry,
 	output: Object.assign(base.output, {
 		path: path.join(base.output.path, folder),
@@ -36,4 +36,6 @@ module.exports = {
 	],
 	postcss: base.postcss,
 	devtool: 'source-map',
-}
+};
+
+export default webpackBuildConfig;
