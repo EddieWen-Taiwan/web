@@ -16,28 +16,28 @@ const webpackBaseConfig = {
 		filename: '[name].[hash:5].js',
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.js$/,
 				include: /src/,
-				loader: 'babel-loader',
+				use: 'babel-loader',
 			}, {
 				test: /\.(png|jpg)$/,
 				include: /src\/image/,
-				loader: 'url-loader?limit=10000&name=[name].[hash:5].[ext]',
+				use: 'url-loader?limit=10000&name=[name].[hash:5].[ext]',
 			}, {
 				test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
-				loader: 'file-loader?name=[name].[hash:5].[ext]',
+				use: 'file-loader?name=[name].[hash:5].[ext]',
 			}, {
 				test: /\.pug$/,
 				include: /src\/views/,
-				loader: 'pug-loader',
+				use: 'pug-loader',
 			},
 		],
-		cssLoader: {
+		cssRule: {
 			test: /\.css$/,
 			include: /src\/css/,
-			loader: {
+			use: {
 				style: 'style-loader',
 				css: 'css-loader!postcss-loader',
 			},

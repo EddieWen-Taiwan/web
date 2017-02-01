@@ -18,9 +18,9 @@ const webpackDevConfig = {
 				loader: 'eslint-loader',
 			},
 		],
-		loaders: base.module.loaders.concat(
-			Object.assign(base.module.cssLoader, {
-				loader: `${base.module.cssLoader.loader.style}!${base.module.cssLoader.loader.css}`,
+		rules: base.module.rules.concat(
+			Object.assign(base.module.cssRule, {
+				use: `${base.module.cssRule.use.style}!${base.module.cssRule.use.css}`,
 			})
 		),
 	},
