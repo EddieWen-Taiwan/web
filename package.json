@@ -34,7 +34,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.7.1",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "extract-text-webpack-plugin": "beta",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.24.1",
     "ip": "^1.1.4",
@@ -52,8 +52,8 @@
     "stylelint-config-standard": "^15.0.0",
     "stylelint-webpack-plugin": "^0.4.0",
     "url-loader": "^0.5.7",
-    "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2"
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^1.16.3"
   },
   "dependencies": {
     "babel-cli": "^6.18.0",

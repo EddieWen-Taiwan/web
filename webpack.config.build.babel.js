@@ -12,29 +12,29 @@ const webpackBuildConfig = {
 		publicPath: `${base.output.publicPath}${folder}/`,
 	}),
 	module: {
-		loaders: base.module.loaders.concat(
-			Object.assign(base.module.cssLoader, {
-				loader: ExtractTextPlugin.extract(
-					base.module.cssLoader.loader.style,
-					base.module.cssLoader.loader.css
-				)
+		rules: base.module.rules.concat(
+			Object.assign(base.module.cssRule, {
+				use: ExtractTextPlugin.extract({
+					fallbackLoader: base.module.cssRule.use.style,
+					loader: `${base.module.cssRule.use.css}?minimize=true!${base.module.cssRule.use.postcss}`,
+				})
 			})
 		),
 	},
 	plugins: [
 		base.plugins.htmlWebpakcPlugin,
+		base.plugins.loaderOptionsPlugin,
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'bundle',
 			filename: '[name].[hash:5].js',
 		}),
 		new webpack.optimize.UglifyJsPlugin({
-			compress: {
-				warnings: false,
-			},
+			sourceMap: true,
 		}),
-		new ExtractTextPlugin('[name].[chunkhash:5].css'),
+		new ExtractTextPlugin({
+			filename: '[name].[chunkhash:5].css',
+		}),
 	],
-	postcss: base.postcss,
 	devtool: 'source-map',
 };
 

@@ -16,30 +16,38 @@ const webpackBaseConfig = {
 		filename: '[name].[hash:5].js',
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.js$/,
 				include: /src/,
-				loader: 'babel-loader',
+				use: 'babel-loader',
 			}, {
 				test: /\.(png|jpg)$/,
 				include: /src\/image/,
-				loader: 'url-loader?limit=10000&name=[name].[hash:5].[ext]',
+				loader: 'url-loader',
+				options: {
+					limit: 10000,
+					name: '[name].[hash:5].[ext]'
+				},
 			}, {
 				test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
-				loader: 'file-loader?name=[name].[hash:5].[ext]',
+				loader: 'file-loader',
+				options: {
+					name: '[name].[hash:5].[ext]',
+				},
 			}, {
 				test: /\.pug$/,
 				include: /src\/views/,
-				loader: 'pug-loader',
+				use: 'pug-loader',
 			},
 		],
-		cssLoader: {
+		cssRule: {
 			test: /\.css$/,
 			include: /src\/css/,
-			loader: {
+			use: {
 				style: 'style-loader',
-				css: 'css-loader!postcss-loader',
+				css: 'css-loader',
+				postcss: 'postcss-loader',
 			},
 		},
 	},
@@ -61,16 +69,20 @@ const webpackBaseConfig = {
 				removeStyleLinkTypeAttributes: true,
 			},
 		}),
-	},
-	postcss: [
-		customProperties({
-			variables: globalCss,
+		loaderOptionsPlugin: new webpack.LoaderOptionsPlugin({
+			options: {
+				postcss: [
+					customProperties({
+						variables: globalCss,
+					}),
+					autoAndMark(),
+					mixins(),
+					extend(),
+					cssnext(),
+				],
+			},
 		}),
-		autoAndMark(),
-		mixins(),
-		extend(),
-		cssnext(),
-	],
+	},
 };
 
 export default webpackBaseConfig;

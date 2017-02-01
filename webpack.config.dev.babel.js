@@ -11,24 +11,30 @@ const webpackDevConfig = {
 	],
 	output: base.output,
 	module: {
-		preLoaders: [
+		rules: base.module.rules.concat([
+			Object.assign(base.module.cssRule, {
+				use: [
+					base.module.cssRule.use.style,
+					base.module.cssRule.use.css,
+					base.module.cssRule.use.postcss,
+				],
+			}),
 			{
+				enforce: 'pre',
 				test: /\.js$/,
 				include: /src/,
 				loader: 'eslint-loader',
+				options: {
+					configFile: '.eslintrc.json',
+				},
 			},
-		],
-		loaders: base.module.loaders.concat(
-			Object.assign(base.module.cssLoader, {
-				loader: `${base.module.cssLoader.loader.style}!${base.module.cssLoader.loader.css}`,
-			})
-		),
+		]),
 	},
-	postcss: base.postcss,
 	plugins: [
 		base.plugins.htmlWebpakcPlugin,
+		base.plugins.loaderOptionsPlugin,
 		new webpack.HotModuleReplacementPlugin(),
-		new webpack.NoErrorsPlugin(),
+		new webpack.NoEmitOnErrorsPlugin(),
 		new styleLintPlugin({
 			configFile: '.stylelintrc.json',
 			files: [
@@ -37,9 +43,6 @@ const webpackDevConfig = {
 			],
 		}),
 	],
-	eslint: {
-		configFile: '.eslintrc.json',
-	},
 	devtool: 'eval',
 };
 
