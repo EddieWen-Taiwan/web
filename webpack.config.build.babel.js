@@ -14,10 +14,10 @@ const webpackBuildConfig = {
 	module: {
 		rules: base.module.rules.concat(
 			Object.assign(base.module.cssRule, {
-				use: ExtractTextPlugin.extract(
-					base.module.cssRule.use.style,
-					base.module.cssRule.use.css
-				)
+				use: ExtractTextPlugin.extract({
+					fallbackLoader: base.module.cssRule.use.style,
+					loader: base.module.cssRule.use.css,
+				})
 			})
 		),
 	},
@@ -30,7 +30,9 @@ const webpackBuildConfig = {
 		new webpack.optimize.UglifyJsPlugin({
 			sourceMap: true,
 		}),
-		new ExtractTextPlugin('[name].[chunkhash:5].css'),
+		new ExtractTextPlugin({
+			filename: '[name].[chunkhash:5].css',
+		}),
 	],
 	postcss: base.postcss,
 	devtool: 'source-map',
