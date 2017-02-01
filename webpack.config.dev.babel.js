@@ -13,7 +13,11 @@ const webpackDevConfig = {
 	module: {
 		rules: base.module.rules.concat([
 			Object.assign(base.module.cssRule, {
-				use: `${base.module.cssRule.use.style}!${base.module.cssRule.use.css}`,
+				use: [
+					base.module.cssRule.use.style,
+					base.module.cssRule.use.css,
+					base.module.cssRule.use.postcss,
+				],
 			}),
 			{
 				enforce: 'pre',

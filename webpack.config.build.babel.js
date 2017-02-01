@@ -16,7 +16,7 @@ const webpackBuildConfig = {
 			Object.assign(base.module.cssRule, {
 				use: ExtractTextPlugin.extract({
 					fallbackLoader: base.module.cssRule.use.style,
-					loader: base.module.cssRule.use.css,
+					loader: `${base.module.cssRule.use.css}!${base.module.cssRule.use.postcss}`,
 				})
 			})
 		),

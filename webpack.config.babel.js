@@ -46,7 +46,8 @@ const webpackBaseConfig = {
 			include: /src\/css/,
 			use: {
 				style: 'style-loader',
-				css: 'css-loader!postcss-loader',
+				css: 'css-loader',
+				postcss: 'postcss-loader',
 			},
 		},
 	},
