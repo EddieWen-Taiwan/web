@@ -24,10 +24,17 @@ const webpackBaseConfig = {
 			}, {
 				test: /\.(png|jpg)$/,
 				include: /src\/image/,
-				use: 'url-loader?limit=10000&name=[name].[hash:5].[ext]',
+				loader: 'url-loader',
+				options: {
+					limit: 10000,
+					name: '[name].[hash:5].[ext]'
+				},
 			}, {
 				test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
-				use: 'file-loader?name=[name].[hash:5].[ext]',
+				loader: 'file-loader',
+				options: {
+					name: '[name].[hash:5].[ext]',
+				},
 			}, {
 				test: /\.pug$/,
 				include: /src\/views/,

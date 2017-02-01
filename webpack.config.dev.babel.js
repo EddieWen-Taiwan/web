@@ -20,6 +20,9 @@ const webpackDevConfig = {
 				test: /\.js$/,
 				include: /src/,
 				loader: 'eslint-loader',
+				options: {
+					configFile: '.eslintrc.json',
+				},
 			},
 		]),
 	},
@@ -36,9 +39,6 @@ const webpackDevConfig = {
 			],
 		}),
 	],
-	eslint: {
-		configFile: '.eslintrc.json',
-	},
 	devtool: 'eval',
 };
 
