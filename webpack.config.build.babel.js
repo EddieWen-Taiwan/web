@@ -28,9 +28,7 @@ const webpackBuildConfig = {
 			filename: '[name].[hash:5].js',
 		}),
 		new webpack.optimize.UglifyJsPlugin({
-			compress: {
-				warnings: false,
-			},
+			sourceMap: true,
 		}),
 		new ExtractTextPlugin('[name].[chunkhash:5].css'),
 	],

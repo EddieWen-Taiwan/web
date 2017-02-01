@@ -11,18 +11,17 @@ const webpackDevConfig = {
 	],
 	output: base.output,
 	module: {
-		preLoaders: [
+		rules: base.module.rules.concat([
+			Object.assign(base.module.cssRule, {
+				use: `${base.module.cssRule.use.style}!${base.module.cssRule.use.css}`,
+			}),
 			{
+				enforce: 'pre',
 				test: /\.js$/,
 				include: /src/,
 				loader: 'eslint-loader',
 			},
-		],
-		rules: base.module.rules.concat(
-			Object.assign(base.module.cssRule, {
-				use: `${base.module.cssRule.use.style}!${base.module.cssRule.use.css}`,
-			})
-		),
+		]),
 	},
 	postcss: base.postcss,
 	plugins: [
