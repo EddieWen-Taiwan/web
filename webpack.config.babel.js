@@ -61,16 +61,20 @@ const webpackBaseConfig = {
 				removeStyleLinkTypeAttributes: true,
 			},
 		}),
-	},
-	postcss: [
-		customProperties({
-			variables: globalCss,
+		loaderOptionsPlugin: new webpack.LoaderOptionsPlugin({
+			options: {
+				postcss: [
+					customProperties({
+						variables: globalCss,
+					}),
+					autoAndMark(),
+					mixins(),
+					extend(),
+					cssnext(),
+				],
+			},
 		}),
-		autoAndMark(),
-		mixins(),
-		extend(),
-		cssnext(),
-	],
+	},
 };
 
 export default webpackBaseConfig;

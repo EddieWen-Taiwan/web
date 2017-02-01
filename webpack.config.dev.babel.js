@@ -23,11 +23,11 @@ const webpackDevConfig = {
 			},
 		]),
 	},
-	postcss: base.postcss,
 	plugins: [
 		base.plugins.htmlWebpakcPlugin,
+		base.plugins.loaderOptionsPlugin,
 		new webpack.HotModuleReplacementPlugin(),
-		new webpack.NoErrorsPlugin(),
+		new webpack.NoEmitOnErrorsPlugin(),
 		new styleLintPlugin({
 			configFile: '.stylelintrc.json',
 			files: [

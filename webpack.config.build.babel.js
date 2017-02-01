@@ -23,6 +23,7 @@ const webpackBuildConfig = {
 	},
 	plugins: [
 		base.plugins.htmlWebpakcPlugin,
+		base.plugins.loaderOptionsPlugin,
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'bundle',
 			filename: '[name].[hash:5].js',
@@ -34,7 +35,6 @@ const webpackBuildConfig = {
 			filename: '[name].[chunkhash:5].css',
 		}),
 	],
-	postcss: base.postcss,
 	devtool: 'source-map',
 };
 
