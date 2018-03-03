@@ -5,7 +5,7 @@
   "main": "src/app.js",
   "scripts": {
     "test": "jest --coverage",
-    "clean": "rm -rf ./build",
+    "clean": "rm -rf ./build ./coverage ./*.log",
     "dev": "babel-node ./devServer.js",
     "prebuild": "npm run clean",
     "build": "NODE_ENV=production webpack --config ./webpack.config.build.babel.js",
