@@ -9,6 +9,7 @@ new WebpackDevServer(webpack(config), {
 	publicPath: config.output.publicPath,
 	hot: true,
 	noInfo: true,
+	overlay: true,
 }).listen(dev.port, 'localhost', (err, result) => {
 	if (err) {
 		return console.log(result);
