@@ -1,4 +1,4 @@
-# Web Starter Kit
+# Web Starter
 
 ## Installation
 
