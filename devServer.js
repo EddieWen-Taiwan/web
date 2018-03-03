@@ -12,10 +12,11 @@ new WebpackDevServer(webpack(config), {
 	overlay: true,
 }).listen(dev.port, 'localhost', (err, result) => {
 	if (err) {
-		return console.log(result);
+		console.log(result);
+
+		return;
 	}
 
 	console.log(`Server started at http://localhost:${dev.port}`);
 	console.log(`Tunnel started at http://${ip.address()}:${dev.port}\n`);
-	return result;
 });
