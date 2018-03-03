@@ -34,28 +34,6 @@ body {
 	font-family: 'Open Sans', sans-serif;
 }
 
-.f-left {
-	float: left;
-}
-
-.f-right {
-	float: right;
-}
-
-.clear {
-	clear: both;
-}
-
-.stop-scrolling {
-	height: 100%;
-	overflow: hidden;
-}
-
-.v-mid {
-	display: flex;
-	align-items: center;
-}
-
 :focus {
 	outline: none !important;
 }
