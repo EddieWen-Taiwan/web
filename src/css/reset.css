@@ -11,7 +11,6 @@
 	EEEEEEEEEEEE    DDDDDDDDDDDD    DDDDDDDDDDDD    IIII	EEE
 	EEEEEEEEEEEE    DDDDDDDDDDDD    DDDDDDDDDDDD    IIII     EEEEEEEEEE
 
-
 	WWWW            WWWW
 	WWWW    WWWW    WWWW
 	WWWW    WWWW    WWWW
@@ -22,20 +21,22 @@
 	 WWWW WWWWWWWW WWWW     EEEEEEEEEEEE    NNNN    NNNN
 	  WWWWWWW  WWWWWWW      EEE             NNNN    NNNN
 	   WWWWW    WWWWW        EEEEEEEEEE     NNNN    NNNN    from TAIWAN
-
 */
+
 @import url('//fonts.googleapis.com/css?family=Open+Sans');
 
 body {
-	margin: 0px;
-	padding: 0px;
+	margin: 0;
+	padding: 0;
 	font-size: 14px;
 	color: #000;
 	font-family: 'Open Sans', sans-serif;
 }
 
 :focus {
+	/* stylelint-disable declaration-no-important */
 	outline: none !important;
+	/* stylelint-enable declaration-no-important */
 }
 
 /*
