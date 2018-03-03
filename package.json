@@ -4,14 +4,14 @@
   "description": "Eddie's web starter",
   "main": "src/app.js",
   "scripts": {
-    "test": "jest --coverage",
     "clean": "rm -rf ./build ./coverage ./*.log",
-    "dev": "babel-node ./devServer.js",
-    "prebuild": "npm run clean",
-    "build": "NODE_ENV=production webpack --config ./webpack.config.build.babel.js",
+    "test": "jest --coverage",
+    "lint": "npm run lint:css && npm run lint:js",
     "lint:css": "stylelint ./src/css/*.css ./src/css/**/*.css --config ./.stylelintrc.json",
     "lint:js": "eslint ./src --config ./.eslintrc.json",
-    "lint": "npm run lint:css && npm run lint:js"
+    "dev": "babel-node ./devServer.js",
+    "prebuild": "npm run clean",
+    "build": "NODE_ENV=production webpack --config ./webpack.config.build.babel.js"
   },
   "repository": {
     "type": "git",
