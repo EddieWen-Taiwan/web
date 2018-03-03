@@ -7,17 +7,28 @@
 	},
 	"rules": {
 		"arrow-parens": [2, "always"],
-		"brace-style": [2, "stroustrup", { "allowSingleLine": true }],
-		"comma-dangle": [2, "always-multiline"],
+		"brace-style": [2, "1tbs"],
+		"comma-dangle": [2, {
+			"arrays": "always-multiline",
+			"objects": "always-multiline",
+			"imports": "always-multiline",
+			"exports": "always-multiline",
+			"functions": "always-multiline"
+		}],
 		"indent": [2, "tab", { "SwitchCase": 1 }],
-		"keyword-spacing": [2, { "after": false, "overrides": {
-			"from": { "after": true },
-			"else": { "after": true },
-			"import": { "after": true },
-			"return": { "after": true }
-		} }],
+		"keyword-spacing": [2, {
+			"after": false,
+			"overrides": {
+				"from": { "after": true },
+				"else": { "after": true },
+				"import": { "after": true },
+				"return": { "after": true }
+			}
+		}],
 		"max-len": [2, 120],
+		"no-cond-assign": [2, "except-parens"],
 		"no-confusing-arrow": 0,
+		"no-console": 0,
 		"no-param-reassign": [2, { "props": false }],
 		"no-mixed-operators": [2, {
 			"groups": [
@@ -26,7 +37,13 @@
 			]
 		}],
 		"no-tabs": [0],
+		"no-unused-vars": 1,
 		"padded-blocks": [2, { "blocks": "always", "switches": "never" }],
+		"prefer-destructuring": [2, {
+			"object": true,
+			"array": false
+		}],
+		"semi": [2, "always", { "omitLastInOneLineBlock": true }],
 		"space-in-parens": [0, "never"]
 	}
 }
