@@ -4,7 +4,6 @@ import cssnext from 'postcss-cssnext';
 import customProperties from 'postcss-custom-properties';
 import mixins from 'postcss-mixins';
 import extend from 'postcss-extend';
-import autoAndMark from './postcss-auto-and-mark';
 import HtmlWebpakcPlugin from 'html-webpack-plugin';
 import globalCss from './global.css.json';
 
@@ -75,7 +74,6 @@ const webpackBaseConfig = {
 					customProperties({
 						variables: globalCss,
 					}),
-					autoAndMark(),
 					mixins(),
 					extend(),
 					cssnext(),
