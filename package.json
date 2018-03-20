@@ -13,20 +13,14 @@
     "lint:js": "eslint src",
     "lint": "npm run lint:css && npm run lint:js"
   },
-  "keywords": [
-    "web",
-    "starter"
-  ],
-  "author": "Eddie Wen <m20021991y@gmail.com> (http://eddiewen.me)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/eddiewentw/web-starter/issues"
-  },
-  "homepage": "https://github.com/eddiewentw/web-starter#readme",
   "repository": {
     "type": "git",
     "url": "github.com:eddiewentw/web-starter.git"
   },
+  "keywords": [
+    "web",
+    "starter"
+  ],
   "devDependencies": {
     "babel-cli": "^6.22.2",
     "babel-core": "^6.18.2",
@@ -64,5 +58,11 @@
   },
   "dependencies": {
     "whatwg-fetch": "^2.0.1"
-  }
+  },
+  "author": "Eddie Wen <m20021991y@gmail.com> (http://eddiewen.me)",
+  "bugs": {
+    "url": "https://github.com/eddiewentw/web-starter/issues"
+  },
+  "homepage": "https://github.com/eddiewentw/web-starter#readme",
+  "license": "MIT"
 }
