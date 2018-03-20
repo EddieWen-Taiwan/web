@@ -20,9 +20,13 @@
   "author": "Eddie Wen <m20021991y@gmail.com> (http://eddiewen.me)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/EddieWen-Taiwan/web/issues"
+    "url": "https://github.com/eddiewentw/web-starter/issues"
   },
-  "homepage": "https://github.com/EddieWen-Taiwan/web#readme",
+  "homepage": "https://github.com/eddiewentw/web-starter#readme",
+  "repository": {
+    "type": "git",
+    "url": "github.com:eddiewentw/web-starter.git"
+  },
   "devDependencies": {
     "babel-cli": "^6.22.2",
     "babel-core": "^6.18.2",
